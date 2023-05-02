@@ -7,5 +7,4 @@ public class Configs {
     protected String dbPass="2115";
     protected String dbName="CerfDB";
 
-
 }

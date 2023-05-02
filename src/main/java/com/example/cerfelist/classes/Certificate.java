@@ -1,6 +1,7 @@
 package com.example.cerfelist.classes;
 
 
+
 public class Certificate {
     private int number;
     private String series;

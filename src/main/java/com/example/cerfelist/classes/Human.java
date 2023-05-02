@@ -1,5 +1,6 @@
 package com.example.cerfelist.classes;
 
+
 public abstract class Human {
     String name;
     String surname;
