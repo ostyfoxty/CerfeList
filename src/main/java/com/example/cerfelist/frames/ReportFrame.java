@@ -3,6 +3,8 @@ package com.example.cerfelist.frames;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.example.cerfelist.sqlTools.DatabaseHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +14,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
+
 public class ReportFrame {
+
 
     @FXML
     private ResourceBundle resources;
@@ -36,6 +40,7 @@ public class ReportFrame {
     @FXML
     private RadioButton sortingWorkerButton;
 
+    public static int dec =0;
 
 
     @FXML
@@ -63,11 +68,14 @@ public class ReportFrame {
             okButton.getScene().getWindow().hide();
 
            FXMLLoader loader = new FXMLLoader();
-           if(sortingShowAllButton.isSelected()) {
+
+          if(sortingShowAllButton.isSelected()) {
                loader.setLocation(getClass().getResource("/com/example/cerfelist/AllCertificatesFrame.fxml"));
+               dec=1;
            }else if(sortingWorkerButton.isSelected()){
                loader.setLocation(getClass().getResource("/com/example/cerfelist/SortingWorkerFrame.fxml"));
-           }else if(sortingDateButton.isSelected())
+               dec =2;
+           }else
                loader.setLocation(getClass().getResource("/com/example/cerfelist/SortingDateFrame.fxml"));
            try {
                loader.load();

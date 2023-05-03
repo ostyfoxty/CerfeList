@@ -2,7 +2,12 @@ package com.example.cerfelist.frames;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import com.example.cerfelist.classes.Manager;
+import com.example.cerfelist.sqlTools.DatabaseHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -42,9 +47,12 @@ public class LoginFrame {
             String login= loginText.getText().trim();
             String password= passwordText.getText().trim();
 
-            if(login.equals("Svetlana")&&password.equals("11111")){
+            try {
                 loginManager(login,password);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
+
         });
 
         registrationButton.setOnAction(event->{
@@ -72,21 +80,36 @@ public class LoginFrame {
 
     }
 
-    public void loginManager(String login,String password){
-        singInButton.getScene().getWindow().hide();
+    public void loginManager(String login,String password) throws SQLException {
+        DatabaseHandler dbHandler=new DatabaseHandler();
+        Manager manager =new Manager();
+        manager.setLogin(login);
+        manager.setPassword(password);
 
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/com/example/cerfelist/NewCertificateFrame.fxml"));
 
-        try {
-            loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        ResultSet result=dbHandler.checkManager(manager);
+
+        int counter=0;
+        while(result.next()){
+            counter++;
         }
 
-        Parent root=loader.getRoot();
-        Stage stage=new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+        if(counter>=1){
+            singInButton.getScene().getWindow().hide();
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/example/cerfelist/NewCertificateFrame.fxml"));
+
+            try {
+                loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            Parent root=loader.getRoot();
+            Stage stage=new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
     }
 }

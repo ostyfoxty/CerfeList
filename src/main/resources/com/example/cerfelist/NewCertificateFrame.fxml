@@ -10,7 +10,7 @@
     <children>
         <AnchorPane layoutY="77.0" prefHeight="630.0" prefWidth="800.0" style="-fx-background-color: #FAFAFA;">
             <children>
-                <Button fx:id="exitButton" layoutX="695.0" layoutY="578.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #8D1000;" text="Exit" textFill="WHITE">
+                <Button fx:id="exitNewCertificateButton" layoutX="695.0" layoutY="578.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #8D1000;" text="Exit" textFill="WHITE">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -65,7 +65,7 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="vacationsCertificateText" layoutX="479.0" layoutY="340.0" prefHeight="40.0" prefWidth="262.0" promptText="Vacation days ">
+            <TextField fx:id="daysOfIllnesText" layoutX="479.0" layoutY="340.0" prefHeight="40.0" prefWidth="262.0" promptText="Days of illness">
                <font>
                   <Font size="18.0" />
                </font>

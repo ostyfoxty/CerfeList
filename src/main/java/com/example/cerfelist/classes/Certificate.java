@@ -1,17 +1,19 @@
 package com.example.cerfelist.classes;
 
 public class Certificate {
-    private int number;
+    private String number;
     private String series;
     private String institutionOfCertificate;
     private String reason;
     private String dateOfCertificate;
+
+    private String daysOfIllness;
     private String workerName;
     private String workerSurname;
     private int workerID;
 
     //getters
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
     public String getSeries() {return series;}
@@ -24,6 +26,7 @@ public class Certificate {
     public String getDate() {
         return dateOfCertificate;
     }
+    public String getAmount(){return daysOfIllness;}
     public String getWorkerName() {
         return workerName;
     }
@@ -35,15 +38,14 @@ public class Certificate {
     }
 
     //setters
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
     public void setSeries(String series) {
         this.series = series;
     }
-    public void setInstitution(String institutionOfCertificate) {
-        this.institutionOfCertificate = institutionOfCertificate;
-    }
+    public void setInstitution(String institutionOfCertificate) { this.institutionOfCertificate = institutionOfCertificate;}
+    public void setAmount(String daysOfIllness){this.daysOfIllness=daysOfIllness;}
     public void setReason(String reason) {
         this.reason = reason;
     }
@@ -61,25 +63,30 @@ public class Certificate {
     }
 
     //constructors and functions
-    public Certificate(int number,String series,String dateOfCertificate,int workerID)
-    {
-        this.number=number;
-        this.series=series;
-        this.dateOfCertificate=dateOfCertificate;
-        this.workerID=workerID;
-    }
 
-    public Certificate(int number,String series,String institutionOfCertificate,String reason,
-                       String dateOfCertificate,int workerID, String workerName,String workerSurname)
+    public Certificate(String number,String series,String institutionOfCertificate,String reason,
+                       String dateOfCertificate, String workerName,String workerSurname, String daysOfIllness)
     {
         this.number=number;
         this.series=series;
         this.dateOfCertificate=dateOfCertificate;
-        this.workerID=workerID;
         this.institutionOfCertificate=institutionOfCertificate;
         this.workerName=workerName;
         this.workerSurname=workerSurname;
         this.reason=reason;
+        this.daysOfIllness=daysOfIllness;
+    }
+
+    public Certificate()
+    {
+        this.number=null;
+        this.series=null;
+        this.dateOfCertificate=null;
+        this.institutionOfCertificate=null;
+        this.workerName=null;
+        this.workerSurname=null;
+        this.reason=null;
+        this.daysOfIllness=null;
     }
 
 }

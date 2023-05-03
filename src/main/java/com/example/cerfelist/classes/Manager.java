@@ -4,20 +4,27 @@ package com.example.cerfelist.classes;
 
 public class Manager extends Human {
 
-    public Manager(String name,String surname, int ID, String login, String password){
+    public Manager(){
+        this.name=null;
+        this.surname=null;
+        this.login=null;
+        this.password=null;
+        this.position=null;
+    }
+
+    public Manager(String name,String surname, String login, String password){
         this.name=name;
         this.surname=surname;
-        this.ID=ID;
         this.login=login;
         this.password=password;
         this.position=null;
     }
-    public Manager(String name,String surname, int ID, String position,String login, String password){
+    public Manager(String name,String surname, String position,String login, String password){
         this.name=name;
         this.surname=surname;
         this.position=position;
-        this.ID=ID;
         this.login=login;
         this.password=password;
     }
+
 }

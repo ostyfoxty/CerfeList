@@ -3,6 +3,8 @@ package com.example.cerfelist.frames;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.example.cerfelist.sqlTools.DatabaseHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,6 +15,8 @@ import javafx.stage.Stage;
 
 public class SortingWorkerFrame {
 
+    public static String sortName;
+    public static String sortSurname;
     @FXML
     private ResourceBundle resources;
 
@@ -31,6 +35,8 @@ public class SortingWorkerFrame {
     @FXML
     private TextField sortingWorkerSurnameText;
 
+
+
     @FXML
     void initialize() {
         cancelWorkerSortingButton.setOnAction(event->{
@@ -38,6 +44,28 @@ public class SortingWorkerFrame {
 
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/com/example/cerfelist/ReportFrame.fxml"));
+
+            try {
+                loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            Parent root=loader.getRoot();
+            Stage stage=new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        });
+
+        okWorkerSortingButton.setOnAction(event->{
+
+            sortName=sortingWorkerNameText.getText();
+            sortSurname= sortingWorkerSurnameText.getText();
+
+            okWorkerSortingButton.getScene().getWindow().hide();
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/example/cerfelist/AllCertificatesFrame.fxml"));
 
             try {
                 loader.load();

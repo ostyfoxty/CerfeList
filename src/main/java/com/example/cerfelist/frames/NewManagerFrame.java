@@ -5,6 +5,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import com.example.cerfelist.classes.Manager;
 import com.example.cerfelist.sqlTools.DatabaseHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -69,17 +70,50 @@ public class NewManagerFrame {
         exitAddManagerButton.setOnAction(event-> exitAddManagerButton.getScene().getWindow().hide());
 
 
-        DatabaseHandler dbHandler=new DatabaseHandler();
         addManagerButton.setOnAction(event->{
+
+            getDataForSignUpNewManager();
+
+            addManagerButton.getScene().getWindow().hide();
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/example/cerfelist/NewManagerFrame.fxml"));
+
             try {
-                dbHandler.signUpManager(newManagerNameText.getText(),newManagerSurnameText.getText(),
-                        newManagerPositionText.getText(),newManagerLoginText.getText(),newManagerPasswordText.getText());
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            } catch (ClassNotFoundException e) {
+                loader.load();
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+
+            Parent root=loader.getRoot();
+            Stage stage=new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+
         });
+    }
+
+    public void getDataForSignUpNewManager(){
+
+        DatabaseHandler dbHandler=new DatabaseHandler();
+
+        try {
+            String name = newManagerNameText.getText();
+            String surname = newManagerSurnameText.getText();
+            String position = newManagerPositionText.getText();
+            String login = newManagerLoginText.getText();
+            String password= newManagerPasswordText.getText();
+
+            Manager manager=new Manager(name,surname,
+                    position,login,password);
+
+            dbHandler.signUpManager(manager);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
