@@ -10,6 +10,7 @@ public class Manager extends Human {
         this.ID=ID;
         this.login=login;
         this.password=password;
+        this.position=null;
     }
     public Manager(String name,String surname, int ID, String position,String login, String password){
         this.name=name;

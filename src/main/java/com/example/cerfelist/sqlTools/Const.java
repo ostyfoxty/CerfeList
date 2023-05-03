@@ -1,7 +1,7 @@
 package com.example.cerfelist.sqlTools;
 
 public class Const {
-    public static final String HUMAN_TABLE="Humans";
+    public static final String HUMAN_TABLE="humans";
 
     public static final String HUMAN_NAME="Name";
     public static final String HUMAN_SURNAME="Surname";
@@ -12,7 +12,7 @@ public class Const {
     public static final String HUMAN_LOGIN="Login";
 
 
-    public static final String CERTIFICATE_TABLE="Certificates";
+    public static final String CERTIFICATE_TABLE="certificates";
 
     public static final String CERTIFICATE_NUMBER="Number";
     public static final String CERTIFICATE_SERIES="Series";

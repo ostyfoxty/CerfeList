@@ -1,14 +1,11 @@
 package com.example.cerfelist.classes;
 
-
-
 public class Certificate {
     private int number;
     private String series;
     private String institutionOfCertificate;
     private String reason;
     private String dateOfCertificate;
-    private int vacationsDays;
     private String workerName;
     private String workerSurname;
     private int workerID;
@@ -26,9 +23,6 @@ public class Certificate {
     }
     public String getDate() {
         return dateOfCertificate;
-    }
-    public int getVacations() {
-        return vacationsDays;
     }
     public String getWorkerName() {
         return workerName;
@@ -55,9 +49,6 @@ public class Certificate {
     }
     public void setDate(String dateOfCertificate) {
         this.dateOfCertificate = dateOfCertificate;
-    }
-    public void setVacations(int vacationsDays) {
-        this.vacationsDays = vacationsDays;
     }
     public void setWorkerName(String workerName) {
         this.workerName = workerName;
@@ -89,20 +80,6 @@ public class Certificate {
         this.workerName=workerName;
         this.workerSurname=workerSurname;
         this.reason=reason;
-        this.vacationsDays=0;
     }
 
-    public Certificate(int number,String series,String institutionOfCertificate,String reason,
-                       String dateOfCertificate,int workerID, String workerName,String workerSurname, int vacationsDays)
-    {
-        this.number=number;
-        this.series=series;
-        this.dateOfCertificate=dateOfCertificate;
-        this.workerID=workerID;
-        this.institutionOfCertificate=institutionOfCertificate;
-        this.workerName=workerName;
-        this.workerSurname=workerSurname;
-        this.reason=reason;
-        this.vacationsDays=vacationsDays;
-    }
 }

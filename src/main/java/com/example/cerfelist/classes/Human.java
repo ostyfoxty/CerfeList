@@ -5,7 +5,6 @@ public abstract class Human {
     String name;
     String surname;
     String position;
-    boolean profUnion;
     String login;
     String password;
     int ID;
@@ -22,9 +21,6 @@ public abstract class Human {
     public String getPosition() {
         return position;
     }
-    public boolean getProfUnion() {
-        return profUnion;
-    }
     public String getLogin() {return login;}
     public String getPassword() {return password;}
     public int getID() {return ID;}
@@ -38,9 +34,6 @@ public abstract class Human {
     }
     public void setPosition(String position) {
         this.position = position;
-    }
-    public void setName(boolean name) {
-        this.profUnion = profUnion;
     }
     public void setLogin(String login) {this.login = login;}
     public void setPassword(String password) {this.password = password;}

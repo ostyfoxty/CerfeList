@@ -5,6 +5,6 @@ public class Configs {
     protected String dbPort="3306";
     protected String dbUser ="root";
     protected String dbPass="2115";
-    protected String dbName="CerfDB";
+    protected String dbName="cerfdb";
 
 }
